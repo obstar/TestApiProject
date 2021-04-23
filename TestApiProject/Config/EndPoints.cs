@@ -5,16 +5,14 @@
         public static EndPoints PostCode = new EndPoints
                                          {
                                              Scheme = "http",
-                                             Host = "api.zippopotam.us/",
-                                             Endpoint = "us"
+                                             Host = "api.zippopotam.us/"
                                          };
-        public string Endpoint { get; set; }
         public string Host { get; set; }
         public string Scheme { get; set; }
 
         public string GetUrl()
         {
-            return $"{Scheme}://{Host}/{Endpoint}";
+            return $"{Scheme}://{Host}/";
         }
     }
 }
