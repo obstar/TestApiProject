@@ -7,23 +7,20 @@ namespace TestApiProject.ObjectsSteps
 {
     [Binding]
     [Scope(Tag = "@PostCode")]
-    public class GetPostCodeSteps
+    public class GetPostCodeLocationSteps
     {
-        //  private readonly GetPostCodeActions _getPostCodeActions;
-        private readonly GetPostCodeApiCall _getPostCodeApiCall;
+        private readonly GetPostCodeLocationApiCall _getPostCodeLocationApiCall;
         private HttpResponseMessage _response;
 
-        public GetPostCodeSteps(//GetPostCodetActions getPostCodetActions,
-                    GetPostCodeApiCall getPostCodeApiCall)
+        public GetPostCodeLocationSteps(GetPostCodeLocationApiCall getPostCodeLocationApiCall)
         {
-          //  _getPostCodeActions = getPostCodeActions;
-            _getPostCodeApiCall = getPostCodeApiCall;
+            _getPostCodeLocationApiCall = getPostCodeLocationApiCall;
         }
 
         [Given(@"I perform get request to endpoint for '(.*)' country code with '(.*)' post code")]
         public async void GivenIPerformGetRequestToEndpointForCountryCodeWithPostCode(string countryCode, string postCode)
         {
-            _response = await _getPostCodeApiCall.GetItAsync(countryCode, postCode);
+            _response = await _getPostCodeLocationApiCall.GetItAsync(countryCode, postCode);
         }
 
         [Then(@"the post code get request is '(.*)'")]

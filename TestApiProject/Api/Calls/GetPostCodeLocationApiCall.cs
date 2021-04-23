@@ -4,7 +4,7 @@ using TestApiProject.Config;
 
 namespace TestApiProject.Api.Calls
 {
-    public class GetPostCodeApiCall : BaseApiCall
+    public class GetPostCodeLocationApiCall : BaseApiCall
     {
         public Task<HttpResponseMessage> GetItAsync(string countryCode,string postCode)
         {
