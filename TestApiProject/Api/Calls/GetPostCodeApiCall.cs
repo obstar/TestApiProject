@@ -6,9 +6,9 @@ namespace TestApiProject.Api.Calls
 {
     public class GetPostCodeApiCall : BaseApiCall
     {
-        public Task<HttpResponseMessage> GetItAsync(string postCode)
+        public Task<HttpResponseMessage> GetItAsync(string countryCode,string postCode)
         {
-            return GetAsync($"{EndPoints.PostCode.GetUrl()}/{postCode}");
+            return GetAsync($"{EndPoints.PostCode.GetUrl()}/{countryCode}/{postCode}");
         }
     }
 }

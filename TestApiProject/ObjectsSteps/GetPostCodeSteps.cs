@@ -20,10 +20,10 @@ namespace TestApiProject.ObjectsSteps
             _getPostCodeApiCall = getPostCodeApiCall;
         }
 
-        [Given(@"I perform get request for '(.*)' post code endpoint")]
-        public async void GivenIPerformGetRequestForPostCodeEndpoint(string postCode)
+        [Given(@"I perform get request to endpoint for '(.*)' country code with '(.*)' post code")]
+        public async void GivenIPerformGetRequestToEndpointForCountryCodeWithPostCode(string countryCode, string postCode)
         {
-            _response = await _getPostCodeApiCall.GetItAsync(postCode);
+            _response = await _getPostCodeApiCall.GetItAsync(countryCode, postCode);
         }
 
         [Then(@"the post code get request is '(.*)'")]
