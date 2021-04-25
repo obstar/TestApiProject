@@ -18,7 +18,13 @@ namespace TestApiProject.Tests.Config
         [BeforeScenario(Order = 10)]
         public void BeforeScenario()
         {
-            Console.WriteLine($"-> [BeforeScenario] {_scenarioContext.ScenarioInfo.Title}");
+           Console.WriteLine($"-> [BeforeScenario] {_scenarioContext.ScenarioInfo.Title}");
+        }
+        
+        [BeforeStep(Order = 10)]
+        public void BeforeStep()
+        {
+            Console.WriteLine($"\t-> [BeforeStep] {_scenarioContext.StepContext.StepInfo.Text}");
         }
 
         [AfterScenario(Order = 10)]
