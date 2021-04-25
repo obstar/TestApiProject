@@ -11,5 +11,11 @@ namespace TestApiProject.Tests.Api.Calls
         {
             return GetItAsync(EndPoints.PostCode.GetUrl(), $"{countryCode}/{postCode}");
         }
+
+        public Task<IRestResponse> WrongPostAsync(string countryCode,
+                                             string postCode)
+        {
+            return PostItAsync(EndPoints.PostCode.GetUrl(), $"{countryCode}/{postCode}");
+        }
     }
 }

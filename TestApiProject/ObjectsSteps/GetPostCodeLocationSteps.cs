@@ -31,6 +31,13 @@ namespace TestApiProject.Tests.ObjectsSteps
             _fullResponse = await _getPostCodeLocationApiCall.GetAsync(countryCode, postCode);
         }
 
+        [Given(@"I perform post request to endpoint for (.*) country code with (.*) post code")]
+        public async Task GivenIPerformPostRequestToEndpointForCountryCodeWithPostCode(string countryCode,
+                                                                                       string postCode)
+        {
+            _fullResponse = await _getPostCodeLocationApiCall.WrongPostAsync(countryCode, postCode);
+        }
+
         [When(@"I have body from get post code location response")]
         public void WhenIHaveBodyFromGetPostCodeLocationResponse()
         {
@@ -40,7 +47,7 @@ namespace TestApiProject.Tests.ObjectsSteps
         [Then(@"the response status code is '(.*)'")]
         public void ThenTheResponseStatusCodeIs(string httpStatusCode)
         {
-            _assertExtension.AreEqual(httpStatusCode, _fullResponse.StatusCode.ToString());
+            _assertExtension.AreEqual(httpStatusCode.Replace(" ", string.Empty), _fullResponse.StatusCode.ToString());
         }
 
         [Then(@"the response has post code equal to (.*)")]
