@@ -77,11 +77,11 @@ namespace TestApiProject.Tests.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("GetPostCodeLocationSuccess - Successful request for different countries")]
+        [NUnit.Framework.DescriptionAttribute("GetPostCodeLocationSuccess - Successful request to get")]
         [NUnit.Framework.TestCaseAttribute("Poland address", "Poland", "PL", "32-600", "Oświęcim", "Małopolskie", "", "19.2333", "50.0333", null)]
         [NUnit.Framework.TestCaseAttribute("United States address", "United States", "US", "90210", "Beverly Hills", "California", "CA", "-118.4065", "34.0901", null)]
         [NUnit.Framework.TestCaseAttribute("Austria address", "Austria", "AT", "1010", "Wien", "", "", "16.3705", "48.2077", null)]
-        public virtual void GetPostCodeLocationSuccess_SuccessfulRequestForDifferentCountries(string exampleDescription, string countryName, string countryCode, string postCode, string placeName, string state, string stateCode, string longitude, string latitude, string[] exampleTags)
+        public virtual void GetPostCodeLocationSuccess_SuccessfulRequestToGet(string exampleDescription, string countryName, string countryCode, string postCode, string placeName, string state, string stateCode, string longitude, string latitude, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
@@ -94,7 +94,7 @@ namespace TestApiProject.Tests.Features
             argumentsOfScenario.Add("stateCode", stateCode);
             argumentsOfScenario.Add("longitude", longitude);
             argumentsOfScenario.Add("latitude", latitude);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("GetPostCodeLocationSuccess - Successful request for different countries", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("GetPostCodeLocationSuccess - Successful request to get", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 5
 this.ScenarioInitialize(scenarioInfo);
 #line hidden

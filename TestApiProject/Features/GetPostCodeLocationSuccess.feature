@@ -2,7 +2,7 @@
 Feature: GetPostCodeLocationSuccess
 	
 
-Scenario Outline: GetPostCodeLocationSuccess - Successful request for different countries
+Scenario Outline: GetPostCodeLocationSuccess - Successful request to get
 	Given I perform get request to endpoint for <countryCode> country code with <postCode> post code
 	When I have body from get post code location response
 	Then the response status code is 'OK'
