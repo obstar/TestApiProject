@@ -18,9 +18,9 @@ namespace TestApiProject.Tests.Config
         [BeforeScenario(Order = 10)]
         public void BeforeScenario()
         {
-           Console.WriteLine($"-> [BeforeScenario] {_scenarioContext.ScenarioInfo.Title}");
+            Console.WriteLine($"-> [BeforeScenario] {_scenarioContext.ScenarioInfo.Title}");
         }
-        
+
         [BeforeStep(Order = 10)]
         public void BeforeStep()
         {
@@ -31,7 +31,7 @@ namespace TestApiProject.Tests.Config
         public void AfterEachScenario()
         {
             var nUnitStatus = TestContext.CurrentContext.Result.Outcome.Status;
-            var failed = nUnitStatus is not TestStatus.Passed and not TestStatus.Skipped; 
+            var failed = nUnitStatus is not TestStatus.Passed and not TestStatus.Skipped;
             Console.WriteLine($"-> [AfterScenario] {_scenarioContext.ScenarioInfo.Title}");
 
             try

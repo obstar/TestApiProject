@@ -1,8 +1,5 @@
-﻿
-using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Newtonsoft.Json;
-using NUnit.Framework;
 using RestSharp;
 using TechTalk.SpecFlow;
 using TestApiProject.Tests.Api.Calls;
@@ -16,19 +13,19 @@ namespace TestApiProject.Tests.ObjectsSteps
     public class GetPostCodeLocationSteps
     {
         private readonly AssertExtension _assertExtension;
-        private readonly GetPostCodeLocationApiCall _getPostCodeLocationApiCall;
         private IRestResponse _fullResponse;
+        private readonly GetPostCodeLocationApiCall _getPostCodeLocationApiCall;
         private GetPostCodeLocationModel _postCodeLocationBody;
 
-        public GetPostCodeLocationSteps(AssertExtension assertExtension,GetPostCodeLocationApiCall getPostCodeLocationApiCall)
+        public GetPostCodeLocationSteps(AssertExtension assertExtension,
+                                        GetPostCodeLocationApiCall getPostCodeLocationApiCall)
         {
             _assertExtension = assertExtension;
             _getPostCodeLocationApiCall = getPostCodeLocationApiCall;
         }
 
-
         [Given(@"I perform get request to endpoint for (.*) country code with (.*) post code")]
-        public async Task GivenIPerformGetRequestToEndpointForCountryCodeWithPostCode(string countryCode, 
+        public async Task GivenIPerformGetRequestToEndpointForCountryCodeWithPostCode(string countryCode,
                                                                                       string postCode)
         {
             _fullResponse = await _getPostCodeLocationApiCall.GetAsync(countryCode, postCode);
@@ -50,8 +47,8 @@ namespace TestApiProject.Tests.ObjectsSteps
         public void ThenTheResponseHasPostCodeEqualTo(string postCode)
         {
             _assertExtension.AreEqual(postCode, _postCodeLocationBody.PostCode);
-        } 
-        
+        }
+
         [Then(@"the response has country equal to (.*)")]
         public void ThenTheResponseHasCountryEqualTo(string countryName)
         {
@@ -65,17 +62,27 @@ namespace TestApiProject.Tests.ObjectsSteps
         }
 
         [Then(@"the response has places equal to (.*), (.*), (.*), (.*) and (.*)")]
-        public void ThenTheResponseHasPlacesEqualToAnd(string placeName, 
-                                                       string state, 
-                                                       string stateCode, 
-                                                       string longitude, 
+        public void ThenTheResponseHasPlacesEqualToAnd(string placeName,
+                                                       string state,
+                                                       string stateCode,
+                                                       string longitude,
                                                        string latitude)
         {
-            _assertExtension.AreEqual(placeName, _postCodeLocationBody.Places[0].PlaceName);
-            _assertExtension.AreEqual(state, _postCodeLocationBody.Places[0].State);
-            _assertExtension.AreEqual(stateCode, _postCodeLocationBody.Places[0].StateAbbreviation);
-            _assertExtension.AreEqual(longitude, _postCodeLocationBody.Places[0].Longitude);
-            _assertExtension.AreEqual(latitude, _postCodeLocationBody.Places[0].Latitude);
+            _assertExtension.AreEqual(placeName,
+                                      _postCodeLocationBody.Places[0]
+                                                           .PlaceName);
+            _assertExtension.AreEqual(state,
+                                      _postCodeLocationBody.Places[0]
+                                                           .State);
+            _assertExtension.AreEqual(stateCode,
+                                      _postCodeLocationBody.Places[0]
+                                                           .StateAbbreviation);
+            _assertExtension.AreEqual(longitude,
+                                      _postCodeLocationBody.Places[0]
+                                                           .Longitude);
+            _assertExtension.AreEqual(latitude,
+                                      _postCodeLocationBody.Places[0]
+                                                           .Latitude);
         }
     }
 }
