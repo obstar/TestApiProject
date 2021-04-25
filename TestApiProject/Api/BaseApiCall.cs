@@ -1,26 +1,15 @@
-﻿using System;
-using System.Net.Http;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using RestSharp;
 
-namespace TestApiProject.Api
+namespace TestApiProject.Tests.Api
 {
     public class BaseApiCall
     {
-        private readonly HttpClient _httpClient;
-
-        public BaseApiCall()
+        protected Task<IRestResponse> Get(string baseUrl, string resources) 
         {
-            _httpClient = new HttpClient
-                          {
-                              Timeout = TimeSpan.FromSeconds(30)
-                          };
+            return new RestClient(baseUrl).ExecuteGetAsync(new RestRequest(resources, Method.GET));
         }
-
-        public async Task<HttpResponseMessage> GetAsync(string endpoint)
-        {
-            return await _httpClient.GetAsync(endpoint);
-        }
-
-        //I could add more methods for put, post, delete..
+        
+        //other methods can be added as needed
     }
 }

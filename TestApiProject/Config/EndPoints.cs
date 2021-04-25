@@ -1,11 +1,11 @@
-﻿namespace TestApiProject.Config
+﻿namespace TestApiProject.Tests.Config
 {
     public class EndPoints
     {
         public static EndPoints PostCode = new EndPoints
                                          {
                                              Scheme = "http",
-                                             Host = "api.zippopotam.us/"
+                                             Host = "api.zippopotam.us"
                                          };
         public string Host { get; set; }
         public string Scheme { get; set; }

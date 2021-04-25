@@ -1,14 +1,14 @@
-﻿using System.Net.Http;
-using System.Threading.Tasks;
-using TestApiProject.Config;
+﻿using System.Threading.Tasks;
+using RestSharp;
+using TestApiProject.Tests.Config;
 
-namespace TestApiProject.Api.Calls
+namespace TestApiProject.Tests.Api.Calls
 {
     public class GetPostCodeLocationApiCall : BaseApiCall
     {
-        public Task<HttpResponseMessage> GetItAsync(string countryCode,string postCode)
+        public Task<IRestResponse> Get(string countryCode, string postCode)
         {
-            return GetAsync($"{EndPoints.PostCode.GetUrl()}/{countryCode}/{postCode}");
+            return base.Get(EndPoints.PostCode.GetUrl(),$"{countryCode}/{postCode}");
         }
     }
 }

@@ -3,7 +3,7 @@ using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using TechTalk.SpecFlow;
 
-namespace TestApiProject.Config
+namespace TestApiProject.Tests.Config
 {
     [Binding]
     public class SessionBindings
@@ -25,7 +25,7 @@ namespace TestApiProject.Config
         public void AfterEachScenario()
         {
             var nUnitStatus = TestContext.CurrentContext.Result.Outcome.Status;
-            var failed = nUnitStatus != TestStatus.Passed && nUnitStatus != TestStatus.Skipped;
+            var failed = nUnitStatus is not TestStatus.Passed and not TestStatus.Skipped; 
             Console.WriteLine($"-> [AfterScenario] {_scenarioContext.ScenarioInfo.Title}");
 
             try
